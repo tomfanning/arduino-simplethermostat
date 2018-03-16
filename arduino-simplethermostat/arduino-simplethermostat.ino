@@ -30,11 +30,30 @@ void setup() {
 
   Serial.println("Simple thermostatic fan controller");
   Serial.println("https://github.com/tomfanning/arduino-simplethermostat.git");
-  Serial.print("Will turn on above ");
+  Serial.println("Wiring: ");
+  Serial.print("  Arduino digital pin ");
+  Serial.print(RELAY_PIN);
+  Serial.println(" to logic input pin of relay module");
+  Serial.println("  Arduino VCC to relay module VCC");
+  Serial.println("  Arduino GND to relay module logic GND");
+  Serial.println("  12V in to Arduino RAW");
+  Serial.print("  DS18B20 left pin to GND, middle pin to Arduino digital pin ");
+  Serial.print(RELAY_PIN);
+  Serial.println(", right pin to VCC");
+  Serial.print("  3.6 - 4.7k resistor VCC to Arduino digital pin ");
+  Serial.println(RELAY_PIN);
+  Serial.println("Optional:");
+  Serial.println("  Cut NC relay output pin");
+  Serial.println("  Connect that screw terminal to GND");
+  Serial.println("  Connect 12V to relay centre pin (and on to Arduino RAW)");
+  Serial.println("  Connect fan to pin 1 and 3 of connector block");
+  Serial.println("Settings:");
+  Serial.print("  Will turn on above ");
   Serial.print(onThreshold);
   Serial.print("C, off below ");
   Serial.print(offThreshold);
-  Serial.print("C");
+  Serial.println("C");
+  Serial.println("  Change this in the source and re-upload");
   
   // do it once without caring about current relay state, so we start up in the right state
   sensors.requestTemperatures();
