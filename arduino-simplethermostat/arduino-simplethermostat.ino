@@ -6,7 +6,7 @@
 #define LED_PIN 13
 
 // will turn off below SETPOINT degrees C, on above SETPOINT + HYSTERISIS
-#define SETPOINT 24
+#define SETPOINT 30
 #define HYSTERISIS 2
 
 OneWire oneWire(ONE_WIRE_BUS);
@@ -29,6 +29,7 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
 
   Serial.println("Simple thermostatic fan controller");
+  Serial.println("https://github.com/tomfanning/arduino-simplethermostat.git");
   Serial.print("Will turn on above ");
   Serial.print(onThreshold);
   Serial.print("C, off below ");
